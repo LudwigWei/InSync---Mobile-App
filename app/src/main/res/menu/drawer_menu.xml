@@ -1,0 +1,80 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/overview"
+        android:title="IoT Overview"
+        android:icon="@drawable/ic_overview"
+        android:layout="@layout/custom_menu_item_layout" />
+
+    <item
+        android:id="@+id/sensors"
+        android:title="Sensors/Actuators"
+        android:icon="@drawable/ic_sensors"
+        android:layout="@layout/custom_menu_item_layout" />
+
+    <item
+        android:id="@+id/networking"
+        android:title="Networking Protocols"
+        android:icon="@drawable/ic_networking"
+        android:layout="@layout/custom_menu_item_layout" />
+
+    <item
+        android:id="@+id/cloud_computing"
+        android:title="Cloud Computing"
+        android:icon="@drawable/ic_cloud_computing"
+        android:layout="@layout/custom_menu_item_layout" />
+
+    <item
+        android:id="@+id/security"
+        android:title="IoT Security"
+        android:icon="@drawable/ic_security"
+        android:layout="@layout/custom_menu_item_layout" />
+
+    <item
+        android:id="@+id/data_management"
+        android:title="Data Management"
+        android:icon="@drawable/ic_data_management"
+        android:layout="@layout/custom_menu_item_layout" />
+
+    <item
+        android:id="@+id/edge_computing"
+        android:title="Edge Computing"
+        android:icon="@drawable/ic_edge_computing"
+        android:layout="@layout/custom_menu_item_layout" />
+
+    <item
+        android:id="@+id/analytics"
+        android:title="IoT Analytics"
+        android:icon="@drawable/ic_analytics"
+        android:layout="@layout/custom_menu_item_layout" />
+
+    <item
+        android:id="@+id/applications"
+        android:title="IoT Applications"
+        android:icon="@drawable/ic_applications"
+        android:layout="@layout/custom_menu_item_layout" />
+
+    <item
+        android:id="@+id/standards"
+        android:title="IoT Standards"
+        android:icon="@drawable/ic_standards"
+        android:layout="@layout/custom_menu_item_layout" />
+
+    <item
+        android:id="@+id/about"
+        android:title="About"
+        android:icon="@drawable/ic_about"
+        android:layout="@layout/custom_menu_item_layout" />
+
+
+    <item
+        android:id="@+id/empty_gap4"
+        android:title=""
+        android:icon="@android:color/transparent"
+        android:enabled="false" />
+
+    <item
+        android:id="@+id/logout"
+        android:title="Log Out"
+        android:icon="@drawable/ic_logout"
+        android:layout="@layout/custom_menu_item_layout" />
+</menu>

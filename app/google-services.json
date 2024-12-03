@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "456516830521",
+    "firebase_url": "https://insyncweb-default-rtdb.firebaseio.com",
+    "project_id": "insyncweb",
+    "storage_bucket": "insyncweb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:456516830521:android:90a322c7c75057d82a14e8",
+        "android_client_info": {
+          "package_name": "com.example.insync_smartcontrolsystem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "456516830521-047ahga7lk49hvucphr5cuugcekhvc2m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_p32ZtI7WWukwNLvjqVVU4Y9YMQtIRnU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "456516830521-047ahga7lk49hvucphr5cuugcekhvc2m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

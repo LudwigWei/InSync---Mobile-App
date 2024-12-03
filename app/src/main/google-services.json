@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "957139369813",
+    "firebase_url": "https://insync-71854-default-rtdb.firebaseio.com",
+    "project_id": "insync-71854",
+    "storage_bucket": "insync-71854.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:957139369813:android:55dcea662ef4cf2434f9dc",
+        "android_client_info": {
+          "package_name": "com.example.insync_smartcontrolsystem"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBasMnyT4cwR2uyC_281vt-wwowl95JHHE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

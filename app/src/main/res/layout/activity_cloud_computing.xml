@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cloud_computing_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="50dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp">
+
+        <!-- Title Section -->
+
+        <!-- Description Section -->
+
+        <!-- Key Benefits Section -->
+
+        <TextView
+            android:id="@+id/cloudcomputing_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/leaguespartan_bold"
+            android:paddingLeft="25dp"
+            android:text="Cloud Computing"
+            android:textColor="@color/black"
+            android:textSize="50sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.045" />
+
+        <!-- Cloud Computing in IoT Section -->
+
+        <!-- Practical Use Cases Section -->
+
+        <!-- Types of Cloud Computing Section -->
+
+        <!-- Challenges in Cloud Computing for IoT Section -->
+
+        <!-- Future of Cloud Computing in IoT Section -->
+
+        <TextView
+            android:id="@+id/cloudcomputing_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/leaguespartan_regular"
+            android:text="Cloud computing in IoT refers to the use of remote servers on the internet to store and process data, making IoT devices more scalable and efficient."
+            android:textAlignment="center"
+            android:textColor="#c4a372"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cloudcomputing_heading"
+            app:layout_constraintVertical_bias="0.006" />
+
+        <TextView
+            android:id="@+id/cloudcomputing_features_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/leaguespartan_bold"
+            android:paddingLeft="30dp"
+            android:text="Key Benefits"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cloudcomputing_description" />
+
+        <TextView
+            android:id="@+id/cloudcomputing_features_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/leaguespartan_regular"
+            android:text="Scalability, Flexibility, Cost-Effectiveness, Efficient data storage and processing."
+            android:textAlignment="center"
+            android:textColor="#c4a372"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cloudcomputing_features_heading" />
+
+        <TextView
+            android:id="@+id/cloudcomputing_in_iot_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/leaguespartan_bold"
+            android:paddingLeft="30dp"
+            android:text="Cloud Computing in IoT"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cloudcomputing_features_list" />
+
+        <TextView
+            android:id="@+id/cloudcomputing_in_iot_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/leaguespartan_regular"
+            android:text="Cloud computing in IoT enables devices to offload data processing to cloud servers, ensuring that devices remain lightweight and cost-efficient while benefiting from virtually limitless storage and processing power."
+            android:textAlignment="center"
+            android:textColor="#c4a372"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cloudcomputing_in_iot_heading" />
+
+        <TextView
+            android:id="@+id/cloudcomputing_use_cases_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/leaguespartan_bold"
+            android:paddingLeft="30dp"
+            android:text="Practical Use Cases"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.069"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cloudcomputing_in_iot_description" />
+
+        <TextView
+            android:id="@+id/cloudcomputing_use_cases_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/leaguespartan_regular"
+            android:text="1. Smart Homes: Cloud computing enables smart homes to manage devices and data efficiently. \n2. Industrial IoT: Cloud-based platforms allow real-time data processing for improved manufacturing efficiency. \n3. Healthcare: Remote patient monitoring through IoT devices integrated with cloud storage and analysis."
+            android:textAlignment="center"
+            android:textColor="#c4a372"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cloudcomputing_use_cases_heading" />
+
+        <TextView
+            android:id="@+id/cloudcomputing_types_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/leaguespartan_bold"
+            android:paddingLeft="30dp"
+            android:text="Types of Cloud Computing"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cloudcomputing_use_cases_list" />
+
+        <TextView
+            android:id="@+id/cloudcomputing_types_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/leaguespartan_regular"
+            android:text="There are three main types of cloud computing: \n1. Infrastructure as a Service (IaaS) - Provides virtualized computing resources over the internet. \n2. Platform as a Service (PaaS) - Provides a platform allowing customers to develop, run, and manage applications without worrying about infrastructure. \n3. Software as a Service (SaaS) - Delivers software applications over the internet on a subscription basis."
+            android:textAlignment="center"
+            android:textColor="#c4a372"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cloudcomputing_types_heading" />
+
+        <TextView
+            android:id="@+id/cloudcomputing_challenges_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/leaguespartan_bold"
+            android:paddingLeft="30dp"
+            android:text="Challenges in Cloud Computing for IoT"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cloudcomputing_types_description" />
+
+        <TextView
+            android:id="@+id/cloudcomputing_challenges_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:fontFamily="@font/leaguespartan_regular"
+            android:text="1. Security and Privacy: Storing sensitive data in the cloud raises concerns about data security and privacy. \n2. Latency: IoT devices often require real-time responses, but cloud computing may introduce latency. \n3. Connectivity: A stable internet connection is necessary for cloud-based IoT systems to function efficiently."
+            android:textAlignment="center"
+            android:textColor="#c4a372"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cloudcomputing_challenges_heading" />
+
+        <TextView
+            android:id="@+id/cloudcomputing_future_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/leaguespartan_bold"
+            android:text="The Future of Cloud Computing in IoT"
+            android:paddingLeft="30dp"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/cloudcomputing_challenges_description"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.1" />
+
+        <TextView
+            android:id="@+id/cloudcomputing_future_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/leaguespartan_regular"
+            android:text="As IoT continues to grow, the future of cloud computing in IoT looks promising, with advancements in edge computing, 5G networks, and AI-enhanced cloud services paving the way for faster, more efficient systems."
+            android:textAlignment="center"
+            android:textColor="#c4a372"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/cloudcomputing_future_heading"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.1" />
+
+        <!-- Conclusion Section -->
+        <TextView
+            android:id="@+id/cloudcomputing_conclusion_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/leaguespartan_bold"
+            android:text="Conclusion"
+            android:paddingLeft="30dp"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/cloudcomputing_future_description"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.1" />
+
+        <TextView
+            android:id="@+id/cloudcomputing_conclusion_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/leaguespartan_regular"
+            android:text="Cloud computing plays a critical role in advancing IoT, providing the scalability, processing power, and storage capacity required to handle vast amounts of data generated by connected devices. Its future looks bright as new technologies continue to evolve."
+            android:textAlignment="center"
+            android:textColor="#c4a372"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/cloudcomputing_conclusion_heading"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

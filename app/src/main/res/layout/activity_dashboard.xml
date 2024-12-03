@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dashboard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <ImageButton
+            android:id="@+id/hamburger_button"
+            android:layout_width="42dp"
+            android:layout_height="51dp"
+            android:layout_margin="16dp"
+            android:background="?attr/selectableItemBackground"
+            android:contentDescription="Hamburger Menu"
+            android:padding="16dp"
+            android:src="@drawable/ic_hamburger_btn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.019" />
+
+        <TextView
+            android:id="@+id/current_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/leaguespartan_bold"
+            android:text="8:00AM"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.051"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.013" />
+
+        <TextView
+            android:id="@+id/greetings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="648dp"
+            android:fontFamily="@font/leaguespartan_bold"
+            android:text="Hi User!"
+            android:textColor="@color/black"
+            android:textSize="35sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.055"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/current_time"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/welcomemsg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="616dp"
+            android:fontFamily="@font/leaguespartan_bold"
+            android:text="Welcome to your Smart Home."
+            android:textColor="#c4a372"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.11"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/greetings"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/welcomemsg">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/livingroom_btn"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
+                android:backgroundTint="#c4a372"
+                app:cornerRadius="10dp"
+                app:icon="@drawable/ic_livingroom"
+                app:iconTint="@color/white" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bedroom_btn"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
+                app:cornerRadius="10dp"
+                android:backgroundTint="#FFF3D19F"
+                app:icon="@drawable/ic_bedroom"
+                app:iconTint="@color/white" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/diningroom_btn"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
+                app:cornerRadius="10dp"
+                android:backgroundTint="#FFF3D19F"
+
+                app:icon="@drawable/ic_diningroom"
+                app:iconTint="@color/white" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/kitchen_btn"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
+                android:backgroundTint="#FFF3D19F"
+                app:cornerRadius="10dp"
+                app:icon="@drawable/ic_kitchen"
+                app:iconTint="@color/white" />
+        </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/materialCardView"
+            android:layout_width="364dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="30dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:layout_constraintVertical_bias="0.0">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/room_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/livingroom_bg" />
+
+                <TextView
+                    android:id="@+id/room_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/leaguespartan_bold"
+                    android:text="Living Room"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </FrameLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/device_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/leaguespartan_bold"
+            android:text="Devices"
+            android:textColor="@color/black"
+            android:textSize="35dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.053"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/materialCardView"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <LinearLayout
+            android:id="@+id/device_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/device_text">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="2"
+                android:padding="6dp">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/device1_card"
+                    android:layout_width="0dp"
+                    android:layout_height="110dp"
+                    android:layout_margin="8dp"
+                    android:layout_gravity="fill"
+                    app:cardBackgroundColor="#c4a372"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="4dp"
+                    android:clickable="true"
+                    android:focusable="true" >
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="15dp"
+                        android:src="@drawable/ic_lightbulb"
+                        android:contentDescription="Device 1 Icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:text="Smart Lamp"
+                        android:layout_marginTop="70dp"
+                        android:layout_marginLeft="15dp"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/leaguespartan_bold"
+                        />
+
+                    <View
+                        android:id="@+id/device1_status_light"
+                        android:layout_width="7dp"
+                        android:layout_height="7dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_gravity="end"
+                        android:layout_margin="15dp"
+                        android:background="@drawable/circle_profile_bg"
+                        android:backgroundTint="@color/white" />
+
+                    <TextView
+                        android:id="@+id/on_off_device1_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:textAlignment="textEnd"
+                        android:text="OFF"
+                        android:layout_marginTop="9dp"
+                        android:layout_marginRight="30dp"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/leaguespartan_bold"
+                        />
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/device2_card"
+                    android:layout_width="0dp"
+                    android:layout_height="110dp"
+                    android:layout_margin="8dp"
+                    app:cardBackgroundColor="#c4a372"
+                    android:layout_gravity="fill"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="4dp"
+                    android:clickable="true"
+                    android:focusable="true" >
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="15dp"
+                        android:src="@drawable/ic_fans"
+                        android:contentDescription="Device 1 Icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:text="Smart Fan"
+                        android:layout_marginTop="70dp"
+                        android:layout_marginLeft="15dp"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/leaguespartan_bold" />
+
+                    <View
+                        android:id="@+id/device2_status_light"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_gravity="end"
+                        android:layout_margin="15dp"
+                        android:background="@drawable/circle_profile_bg"
+                        android:backgroundTint="@color/white" />
+
+                    <TextView
+                        android:id="@+id/on_off_device2_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:text="OFF"
+                        android:textAlignment="textEnd"
+                        android:layout_marginTop="9dp"
+                        android:layout_marginRight="30dp"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/leaguespartan_bold"
+                        />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/device3_card"
+                    android:layout_width="0dp"
+                    android:layout_height="110dp"
+                    android:layout_margin="8dp"
+                    android:layout_gravity="fill"
+                    app:cardBackgroundColor="#c4a372"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="4dp"
+                    android:clickable="true"
+                    android:focusable="true" >
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="15dp"
+                        android:src="@drawable/ic_speaker"
+                        android:contentDescription="Device 3 Icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:text="Smart Speaker"
+                        android:layout_marginTop="70dp"
+                        android:layout_marginLeft="15dp"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/leaguespartan_bold" />
+
+                    <View
+                        android:id="@+id/device3_status_light"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_gravity="end"
+                        android:layout_margin="15dp"
+                        android:background="@drawable/circle_profile_bg"
+                        android:backgroundTint="@color/white" />
+
+                    <TextView
+                        android:id="@+id/on_off_device3_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:text="OFF"
+                        android:textAlignment="textEnd"
+                        android:layout_marginTop="9dp"
+                        android:layout_marginRight="30dp"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/leaguespartan_bold" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/device4_card"
+                    android:layout_width="0dp"
+                    android:layout_height="110dp"
+                    android:layout_margin="8dp"
+                    android:layout_gravity="fill"
+                    app:cardBackgroundColor="#c4a372"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="4dp"
+                    android:clickable="true"
+                    android:focusable="true" >
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="15dp"
+                        android:src="@drawable/ic_temp"
+                        android:contentDescription="Device 4 Icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:text="Thermometer"
+                        android:layout_marginTop="70dp"
+                        android:layout_marginLeft="15dp"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/leaguespartan_bold" />
+
+                    <View
+                        android:id="@+id/device4_status_light"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_gravity="end"
+                        android:layout_margin="15dp"
+                        android:background="@drawable/circle_profile_bg"
+                        android:backgroundTint="@color/white" />
+
+                    <TextView
+                        android:id="@+id/on_off_device4_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:text="OFF"
+                        android:textAlignment="textEnd"
+                        android:layout_marginTop="9dp"
+                        android:layout_marginRight="30dp"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/leaguespartan_bold"
+                        />
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </GridLayout>
+
+            <!-- New Sensor Data Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/sensor_data_card"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="16dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/leaguespartan_bold"
+                        android:text="Sensor Data"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/sound_data_label"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Sound:"
+                            android:textColor="@color/black"/>
+
+                        <TextView
+                            android:id="@+id/sound_data_value"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="N/A"
+                            android:textColor="#c4a372"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/temperature_data_label"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Temperature:"
+                            android:textColor="@color/black"/>
+
+                        <TextView
+                            android:id="@+id/temperature_data_value"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="N/A"
+                            android:textColor="#c4a372"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/humidity_data_label"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Humidity:"
+                            android:textColor="@color/black"/>
+
+                        <TextView
+                            android:id="@+id/humidity_data_value"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="N/A"
+                            android:textColor="#c4a372"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <FrameLayout
+        android:layout_width="280dp"
+        android:layout_height="750dp"
+        android:layout_gravity="start|center_vertical">
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/hamburger_btn_radius"
+            app:headerLayout="@layout/menu_header"
+            app:itemTextAppearance="@style/CustomNavigationMenuItemStyle"
+            app:menu="@menu/drawer_menu" />
+
+    </FrameLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/applications_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:padding="50dp">
+
+    <!-- Scrollable content starts here -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp">
+
+        <!-- Heading for the section -->
+        <TextView
+            android:id="@+id/applications_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/leaguespartan_bold"
+            android:text="IoT Applications"
+            android:textColor="@color/black"
+            android:textSize="50sp"
+            android:paddingLeft="25dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.051" />
+
+        <!-- Description explaining IoT Applications -->
+        <TextView
+            android:id="@+id/applications_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/leaguespartan_regular"
+            android:text="IoT applications are revolutionizing various industries, allowing businesses and individuals to automate processes and improve efficiency. These applications span across multiple domains such as healthcare, smart homes, industrial automation, and agriculture."
+            android:textAlignment="center"
+            android:textColor="#c4a372"
+            android:textSize="23sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/applications_heading"
+            app:layout_constraintVertical_bias="0.089" />
+
+        <!-- Key Applications heading -->
+        <TextView
+            android:id="@+id/applications_features_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/leaguespartan_bold"
+            android:text="Key Applications"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/applications_description"
+            app:layout_constraintVertical_bias="0.068" />
+
+        <!-- List of key applications -->
+        <TextView
+            android:id="@+id/applications_features_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/leaguespartan_regular"
+            android:text="1. Smart Home Automation: Control lighting, heating, and security remotely.\n\n2. Industrial IoT: Improve manufacturing efficiency with real-time monitoring of machinery.\n\n3. Wearable Health Devices: Track and monitor health parameters such as heart rate and activity levels.\n\n4. Smart Cities: Enhance urban living by monitoring traffic, air quality, and waste management.\n\n5. Environmental Monitoring: Monitor pollution levels and predict natural disasters."
+            android:textAlignment="center"
+            android:textColor="#c4a372"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/applications_features_heading"
+            app:layout_constraintVertical_bias="0.084" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Scrollable content ends here -->
+
+</androidx.core.widget.NestedScrollView>
