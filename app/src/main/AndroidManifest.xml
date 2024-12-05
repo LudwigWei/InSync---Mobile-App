@@ -41,6 +41,15 @@
         <activity android:name=".SecurityActivity"/>
         <activity android:name=".SensorsActivity"/>
         <activity android:name=".StandardsActivity"/>
+        <activity
+            android:name=".StatisticsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LearningActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
 
     </application>
 

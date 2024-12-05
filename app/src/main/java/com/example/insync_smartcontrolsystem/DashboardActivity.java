@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -21,10 +20,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.card.MaterialCardView;
-import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -46,19 +44,18 @@ public class DashboardActivity extends AppCompatActivity {
 
     private TextView currentTimeTextView;
 
-    private DrawerLayout drawerLayout;
-    private NavigationView navigationView;
+    private BottomNavigationView bottomNavigationView;
     private TextView roomNameTextView;
     private ImageView roomImageView;
-    private TextView profileNameTextView;  // Profile name TextView
+    private TextView profileNameTextView;
 
     private MaterialButton selectedButton = null; // Track the selected button
 
     // Color values for selected and unselected buttons
-    private static final int SELECTED_COLOR = 0xFFC4A372; // Active color
-    private static final int UNSELECTED_COLOR = 0xFFF3D19F; // Inactive color
-    private static final int COLOR_ON = 0xFF4CAF50;  // Green
-    private static final int COLOR_OFF = 0xFFFFFFFF; // White
+    private static final int SELECTED_COLOR = 0xFF202020;   // Active color
+    private static final int UNSELECTED_COLOR = 0xFF5A5A5A; // Inactive color
+    private static final int COLOR_ON = 0xFF2196F3;         // Blue
+    private static final int COLOR_OFF = 0xFFFFFFFF;        // White
 
     private MaterialCardView device1Card, device2Card, device3Card, device4Card;
 
@@ -66,208 +63,128 @@ public class DashboardActivity extends AppCompatActivity {
     private TextView soundDataValue, temperatureDataValue, humidityDataValue;
     private MaterialCardView sensorDataCard;
 
-    // Firebase Realtime Database reference for sensor data
+    // Firebase Realtime Database references
     private DatabaseReference sensorRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_dashboard);
 
-        try {
-            // Enable edge-to-edge layout
-            EdgeToEdge.enable(this);
-
-            // Set up the view and layout
-            setContentView(R.layout.activity_dashboard);
-
-            // Initialize the current time TextView
-            currentTimeTextView = findViewById(R.id.current_time);
-
-            firestore = FirebaseFirestore.getInstance();
-            auth = FirebaseAuth.getInstance();
-
-            // Initialize Firebase Realtime Database
-            databaseRef = FirebaseDatabase.getInstance("https://insyncweb-default-rtdb.firebaseio.com/").getReference();
-
-            // Hide the action bar if present
-            if (getSupportActionBar() != null) {
-                getSupportActionBar().hide();
-            }
-
-            // Set padding for system bars (edge-to-edge effect)
-            ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.dashboard), (v, insets) -> {
-                Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-                v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-                return insets;
-            });
-
-            // Initialize DrawerLayout and NavigationView
-            drawerLayout = findViewById(R.id.drawer_layout);
-            navigationView = findViewById(R.id.nav_view);
-
-            View headerView = navigationView.getHeaderView(0);
-            profileNameTextView = headerView.findViewById(R.id.profile_name);
-
-            // Initialize room-related views
-            roomNameTextView = findViewById(R.id.room_name);
-            roomImageView = findViewById(R.id.room_image);
-
-            // Initialize the device cards
-            device1Card = findViewById(R.id.device1_card);
-            device2Card = findViewById(R.id.device2_card);
-            device3Card = findViewById(R.id.device3_card);
-            device4Card = findViewById(R.id.device4_card);
-
-            // Set up the toggle for each device
-            setupDeviceToggle(device1Card, R.id.device1_status_light, R.id.on_off_device1_text);
-            setupDeviceToggle(device2Card, R.id.device2_status_light, R.id.on_off_device2_text);
-            setupDeviceToggle(device3Card, R.id.device3_status_light, R.id.on_off_device3_text);
-            setupDeviceToggle(device4Card, R.id.device4_status_light, R.id.on_off_device4_text);
-
-            // Initialize sensor data views
-            sensorDataCard = findViewById(R.id.sensor_data_card);
-            soundDataValue = findViewById(R.id.sound_data_value);
-            temperatureDataValue = findViewById(R.id.temperature_data_value);
-            humidityDataValue = findViewById(R.id.humidity_data_value);
-
-            // Initialize Firebase Realtime Database reference
-            sensorRef = FirebaseDatabase.getInstance("https://insyncweb-default-rtdb.firebaseio.com/").getReference("sensors");
-
-            // Set up sensor data listeners
-            setupSensorDataListeners();
-
-            // Set up buttons for each room
-            MaterialButton bedroomButton = findViewById(R.id.bedroom_btn);
-            MaterialButton diningRoomButton = findViewById(R.id.diningroom_btn);
-            MaterialButton kitchenButton = findViewById(R.id.kitchen_btn);
-            MaterialButton livingRoomButton = findViewById(R.id.livingroom_btn);
-
-            // Set up the hamburger button to open the drawer
-            ImageButton hamburgerButton = findViewById(R.id.hamburger_button);
-            hamburgerButton.setOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.START));
-
-            // Set up a listener for navigation item selection
-            navigationView.setNavigationItemSelectedListener(item -> {
-                int id = item.getItemId();
-                if (id == R.id.overview) {
-                    Intent intent = new Intent(DashboardActivity.this, OverviewActivity.class);
-                    startActivity(intent);
-                } else if (id == R.id.sensors) {
-                    Intent intent = new Intent(DashboardActivity.this, SensorsActivity.class);
-                    startActivity(intent);
-                } else if (id == R.id.networking) {
-                    Intent intent = new Intent(DashboardActivity.this, NetworkingActivity.class);
-                    startActivity(intent);
-                } else if (id == R.id.cloud_computing) {
-                    Intent intent = new Intent(DashboardActivity.this, CloudComputingActivity.class);
-                    startActivity(intent);
-                } else if (id == R.id.security) {
-                    Intent intent = new Intent(DashboardActivity.this, SecurityActivity.class);
-                    startActivity(intent);
-                } else if (id == R.id.data_management) {
-                    Intent intent = new Intent(DashboardActivity.this, DataManagementActivity.class);
-                    startActivity(intent);
-                } else if (id == R.id.edge_computing) {
-                    Intent intent = new Intent(DashboardActivity.this, EdgeComputingActivity.class);
-                    startActivity(intent);
-                } else if (id == R.id.analytics) {
-                    Intent intent = new Intent(DashboardActivity.this, AnalyticsActivity.class);
-                    startActivity(intent);
-                } else if (id == R.id.applications) {
-                    Intent intent = new Intent(DashboardActivity.this, ApplicationsActivity.class);
-                    startActivity(intent);
-                } else if (id == R.id.standards) {
-                    Intent intent = new Intent(DashboardActivity.this, StandardsActivity.class);
-                    startActivity(intent);
-                } else if (id == R.id.about) {
-                    Intent intent = new Intent(DashboardActivity.this, AboutActivity.class);
-                    startActivity(intent);
-                } else if (id == R.id.logout) {
-                    new AlertDialog.Builder(DashboardActivity.this)
-                            .setMessage("Are you sure you want to log out?")
-                            .setCancelable(false)
-                            .setPositiveButton("Yes", (dialog, id1) -> {
-                                // Perform log out action here (e.g., FirebaseAuth sign out)
-                                FirebaseAuth.getInstance().signOut();  // Uncomment this if using FirebaseAuth
-
-                                Toast.makeText(DashboardActivity.this, "Logged out", Toast.LENGTH_SHORT).show();
-
-                                // Redirect to LoginActivity after log out
-                                Intent intent = new Intent(DashboardActivity.this, LoginActivity.class);
-                                startActivity(intent);
-                                finish();  // Close the current activity so that the user can't go back to the Dashboard
-                            })
-                            .setNegativeButton("No", null)
-                            .show();
-                } else {
-                    Toast.makeText(DashboardActivity.this, "Unknown option selected", Toast.LENGTH_SHORT).show();
-                }
-                drawerLayout.closeDrawer(GravityCompat.START);
-                return true;
-            });
-
-            // Set up button click listeners for changing room content
-            livingRoomButton.setOnClickListener(v -> {
-                selectButton(livingRoomButton);
-                roomNameTextView.setText("Living Room");
-                showDevices();
-                roomImageView.setImageResource(R.drawable.livingroom_bg);
-            });
-
-            bedroomButton.setOnClickListener(v -> {
-                selectButton(bedroomButton);
-                roomNameTextView.setText("Bedroom");
-                hideDevices();
-                roomImageView.setImageResource(R.drawable.bedroom_bg);
-            });
-
-            diningRoomButton.setOnClickListener(v -> {
-                selectButton(diningRoomButton);
-                roomNameTextView.setText("Dining Room");
-                hideDevices();
-                roomImageView.setImageResource(R.drawable.diningroom_bg);
-            });
-
-            kitchenButton.setOnClickListener(v -> {
-                selectButton(kitchenButton);
-                roomNameTextView.setText("Kitchen");
-                hideDevices();
-                roomImageView.setImageResource(R.drawable.kitchen_bg);
-            });
-
-            // Set Living Room as the default room
-            selectButton(livingRoomButton);
-            roomNameTextView.setText("Living Room");
-            roomImageView.setImageResource(R.drawable.livingroom_bg);
-
-            // Update profile name in the navigation drawer
-            updateProfileName();
-            // Update the current time every second
-            updateCurrentTime();
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        // Hide the action bar if present
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
         }
+
+        // Set padding for system bars (edge-to-edge effect)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.dashboard), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+        // Initialize Firebase components
+        auth = FirebaseAuth.getInstance();
+        firestore = FirebaseFirestore.getInstance();
+        databaseRef = FirebaseDatabase.getInstance("https://insyncweb-default-rtdb.firebaseio.com/").getReference();
+
+        // Initialize views
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+
+        setupBottomNavigation();
+
+        // Initialize sensor views
+        sensorDataCard = findViewById(R.id.sensor_data_card);
+        soundDataValue = findViewById(R.id.sound_data_value);
+        temperatureDataValue = findViewById(R.id.temperature_data_value);
+        humidityDataValue = findViewById(R.id.humidity_data_value);
+
+        // Initialize room-related views
+        roomNameTextView = findViewById(R.id.room_name);
+        roomImageView = findViewById(R.id.room_image);
+
+        // Initialize the device cards
+        device1Card = findViewById(R.id.device1_card);
+        device2Card = findViewById(R.id.device2_card);
+        device3Card = findViewById(R.id.device3_card);
+        device4Card = findViewById(R.id.device4_card);
+
+        // Set up the toggle for each device
+        setupDeviceToggle(device1Card, R.id.device1_status_light, R.id.on_off_device1_text);
+        setupDeviceToggle(device2Card, R.id.device2_status_light, R.id.on_off_device2_text);
+        setupDeviceToggle(device3Card, R.id.device3_status_light, R.id.on_off_device3_text);
+        setupDeviceToggle(device4Card, R.id.device4_status_light, R.id.on_off_device4_text);
+
+        // Initialize Firebase Realtime Database reference
+        sensorRef = FirebaseDatabase.getInstance("https://insyncweb-default-rtdb.firebaseio.com/").getReference("sensors");
+
+        // Set up sensor data listeners
+        setupSensorDataListeners();
+
+        // Set up buttons for each room
+        MaterialButton bedroomButton = findViewById(R.id.bedroom_btn);
+        MaterialButton diningRoomButton = findViewById(R.id.diningroom_btn);
+        MaterialButton kitchenButton = findViewById(R.id.kitchen_btn);
+        MaterialButton livingRoomButton = findViewById(R.id.livingroom_btn);
+
+        // Set up button click listeners for changing room content
+        livingRoomButton.setOnClickListener(v -> {
+            selectButton(livingRoomButton);
+            showLivingRoomDevices();
+        });
+
+        bedroomButton.setOnClickListener(v -> {
+            selectButton(bedroomButton);
+            roomNameTextView.setText("Bedroom");
+            hideDevices();
+            roomImageView.setImageResource(R.drawable.bedroom_bg);
+        });
+
+        diningRoomButton.setOnClickListener(v -> {
+            selectButton(diningRoomButton);
+            roomNameTextView.setText("Dining Room");
+            hideDevices();
+            roomImageView.setImageResource(R.drawable.diningroom_bg);
+        });
+
+        kitchenButton.setOnClickListener(v -> {
+            selectButton(kitchenButton);
+            roomNameTextView.setText("Kitchen");
+            hideDevices();
+            roomImageView.setImageResource(R.drawable.kitchen_bg);
+        });
+
+        // Set Living Room as the default room
+        selectButton(livingRoomButton);
+        showLivingRoomDevices();
+
+        // Update profile name in the navigation drawer
+        updateProfileName();
+        // Update the current time every second
+
     }
 
-    private void updateCurrentTime() {
-        final Handler handler = new Handler();
-        Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                // Get the current time formatted as "hh:mm:ss a"
-                SimpleDateFormat sdf = new SimpleDateFormat("hh:mm a", Locale.getDefault());
-                String currentTime = sdf.format(new Date());
-
-                // Update the TextView with the current time
-                currentTimeTextView.setText(currentTime);
-
-                // Repeat every second
-                handler.postDelayed(this, 1000);
+    private void setupBottomNavigation() {
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+            if (itemId == R.id.nav_home) {
+                return true;
+            } else if (itemId == R.id.nav_statistics) {
+                Intent intent = new Intent(DashboardActivity.this, StatisticsActivity.class);
+                startActivity(intent);
+                return true;
+            } else if (itemId == R.id.nav_learning) {
+                Intent intent = new Intent(DashboardActivity.this, LearningActivity.class);
+                startActivity(intent);
+                return true;
+            } else if (itemId == R.id.nav_profile) {
+                Intent intent = new Intent(DashboardActivity.this, ProfileActivity.class);
+                startActivity(intent);
+                return true;
             }
-        };
-
-        handler.post(runnable);
+            return false;
+        });
     }
 
     // Method to update the profile name
@@ -374,11 +291,21 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
     // Method to show device cards for the living room
-    private void showDevices() {
+    private void showLivingRoomDevices() {
+        // Show all device cards
         device1Card.setVisibility(View.VISIBLE);
         device2Card.setVisibility(View.VISIBLE);
         device3Card.setVisibility(View.VISIBLE);
         device4Card.setVisibility(View.VISIBLE);
+
+        // Hide sensor card in living room
+        if (sensorDataCard != null) {
+            sensorDataCard.setVisibility(View.GONE);
+        }
+
+        // Update room image and name
+        roomImageView.setImageResource(R.drawable.livingroom_bg);
+        roomNameTextView.setText("Living Room");
     }
 
     // Method to hide device cards for non-living room sections

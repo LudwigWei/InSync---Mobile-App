@@ -6,4 +6,39 @@
         <item name="android:fontFamily">@font/leaguespartan_bold</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
+    <style name="BottomNavigation">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:background">@drawable/bottom_navigation_background</item>
+        <item name="itemIconSize">30dp</item>
+        <item name="itemIconTint">@color/bottom_nav_color</item>
+        <item name="labelVisibilityMode">unlabeled</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="BottomNavStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:background">@drawable/bottom_navigation_background</item>
+        <item name="itemIconSize">30dp</item>
+        <item name="itemIconTint">@color/bottom_nav_color</item>
+        <item name="labelVisibilityMode">unlabeled</item>
+        <item name="itemRippleColor">@android:color/transparent</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+    </style>
+    <style name="CustomBottomNavigation">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">64dp</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:background">@drawable/bottom_navigation_background</item>
+        <item name="android:gravity">center</item>
+        <item name="itemIconSize">30dp</item>
+        <item name="itemIconTint">@color/bottom_nav_color</item>
+        <item name="labelVisibilityMode">unlabeled</item>
+        <item name="itemRippleColor">@android:color/transparent</item>
+        <item name="itemPaddingTop">0dp</item>
+        <item name="itemPaddingBottom">0dp</item>
+    </style>
 </resources>
